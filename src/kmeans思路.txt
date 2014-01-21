@@ -1,0 +1,11 @@
+﻿kmeans思路：
+1，生成初始化数据
+2，初始化centroids
+3，计算每一个点与初始化centroids的距离，将最小距离的分为一类
+
+
+随机生成60个点
+计算每一个点与初始化的centroids（3个）的距离  故有60×3个值
+取每行3个值中最小的既为距离该点最近的centroids
+dist_p_c_min_index=np.argmin(dist_p_c,axis=1)表示最小值的label及每一个点属于哪个centroids
+dist_p_c_min=np.amin(dist_p_c,axis=1) 表示60个点中每个点与它最近的centroids用于后面做目标函数的计算
