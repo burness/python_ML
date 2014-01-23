@@ -1,3 +1,4 @@
+# It is a Linear Regression with python by Burness from SHU
 # read the data from ex1data2.txt
 import numpy as np
 def cost_function(data,prices,W):
@@ -29,7 +30,6 @@ if __name__=="__main__":
     training_data_prices=np.loadtxt("ex1data2.txt",delimiter=",")
     training_data=training_data_prices[:,:2]
     prices=training_data_prices[:,2:]
-    # 均值归一化，后期会将其归一成正态分布
     for i in range(len(training_data[1,:])):
         training_data[:,i]=(training_data[:,i]-np.min(training_data[:,i]))/(np.max(training_data[:,i])-np.min(training_data[:,i]))
     threshold=1e-6
@@ -38,7 +38,6 @@ if __name__=="__main__":
     # W0=np.ones(len(training_data[:,0]),1)
     X0=np.ones([len(training_data[:,0]),1])
     training_data=np.concatenate((X0,training_data),axis=1)
-    # 初始化
     W=np.array(np.ones(np.size(training_data[1,:])).reshape(len(training_data[1,:]),1)).T
     #W=np.array([[1,1,1]])
     alpha=0.1
