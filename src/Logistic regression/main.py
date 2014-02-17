@@ -3,13 +3,16 @@ from plot_data import plot_data
 from cost_function import cost_function
 from batch_gradient_update import batch_gradient_update
 from sigmoid_function import sigmoid_function
+from featureNormalize import featureNormalize
 import numpy as np
 from sklearn.linear_model import SGDClassifier
 from sklearn.datasets.samples_generator import make_blobs
 import scipy as sp
 #X,y=read_data("ex2data1.txt")
-
 X, y = make_blobs(n_samples=400, centers=2, random_state=0, cluster_std=1)
+# after featureNormalize it accuarcy could get 89%
+X,X_mu,X_sigma=featureNormalize(X)
+
 
 #plot_data(X,y)
 y=np.reshape(y,(y.size,1))
