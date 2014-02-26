@@ -9,6 +9,6 @@ def cost_function(theta,X,y):
     J=-np.sum(T)/m
     # compute the grad
     for i in range(m):
-        grad=grad+(H[i]-y[i])*X[i,:].T
+        grad=grad-(H[i]-y[i])*X[i,:].T
     grad=grad/m
     return J,grad
